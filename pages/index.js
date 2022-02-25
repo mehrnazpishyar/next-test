@@ -1,10 +1,25 @@
+import React, { useState } from 'react';
 import Head from 'next/head'
-import  Navbar from '../components/navbar'
+import Navbar from '../components/navbar'
+import { Router } from 'next/router';
+// import Router from "next/router";
 
 
 
 export default function Home() {
+  const [list, setList] = useState("");
+  const [item, setItem] = useState([]);
 
+
+  function addList(e) {
+    e.preventDefault();
+    if (!list) {
+    } else {
+      setItem([...item, list])
+      setList('')
+    }
+}
+  
   return (
     <div>
       <Head>
@@ -14,6 +29,24 @@ export default function Home() {
       </Head>
       <h1>Navbar</h1>
       <Navbar />
+
+      <form>
+        <input type="text" name="name" value={list} onChange={e => setList(e.target.value)}/>
+        <button onClick={addList} type="submit" value="Submit">send</button>
+      </form>
+
+      <div>
+        {
+          item.map((elem, ind) => {
+            return <div key={ind}>
+                <h2>{elem}</h2>
+                </div>
+          })
+        }
+      </div>
+
+   
+
     </div>
   )
 }
