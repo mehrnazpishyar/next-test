@@ -1,18 +1,16 @@
 import React from 'react'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const About = () => {
-  const router = useRouter();
-  const {
-    query:{setList}
-  } = router
-
-  const props = {
-    setList
-  }
   return (
-    <div>{props.setList}</div>
+    <div className='mt-6'>
+      <Link href="/"><a className="ml-10 text-2xl px-5 py-3 bg-pink-400 rounded-md">Back to Home</a></Link>
+
+      <h1 className='text-center text-pink-700 mt-36 text-8xl'>This is About Page</h1>
+
+    </div>
   )
+
 }
 
 export default About
