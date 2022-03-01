@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import List from '../components/List';
-import Image from 'next/image';
-import love from '../public/love.jpg'
+import ImageComponent from '../components/ImageComponent';
+
 
 
 export default function Home() {
@@ -16,21 +16,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <List />
-      <div className='text-center mt-16'>
-        <Image
-          src={love}
-          alt="back"
-          width={500}
-          height={300}
-        />
-      </div>
-      <div className='text-center mt-16'>
-        <Image
-          src={love}
-          alt="back"
-          objectFit="contain"
-        />
-      </div>
+      <ImageComponent />
     </div>
   )
 }
